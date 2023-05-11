@@ -1,0 +1,20 @@
+  {% extends 'base.html' %}
+
+{% block content %}
+{% if users %}
+<ul class="list-group">
+  {% for user in users %}
+  <li class="list-group-item">
+      {% if user.profile %}
+      <a href="{% url 'Show_profile_page' user.profile.id %}">
+          {{ user.username }}</a>
+      {% else %}
+      {{ user.username }}
+  {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No results found.</p>
+{% endif %}
+ {% endblock %}

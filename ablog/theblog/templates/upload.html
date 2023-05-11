@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+<h2>Please Upload Excel File</h2>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }}" role="alert">
+    <p {% if message.tags %} class=""{% endif %}>{{ message }}</p>
+
+</div>
+ {% endfor %}
+{% endif %}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input class="btn btn-primary" type="file" name="myfile">
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>
+{% if request.method == 'POST' %}
+{% if request.FILES %}
+{% if request.FILES.myfile %}
+<p>File uploaded successfully</p>
+{% else %}
+<p>No file uploaded</p>
+{% endif %}
+{% else %}
+<p>No file uploaded</p>
+{% endif %}
+{% endif %}
+{% else %}
+LOGIN REQUIRED
+{% endif %}
+{% endblock %}
+
