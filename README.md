@@ -7,7 +7,6 @@ User Management
 Secure authentication system with email verification
 Customizable user profiles with profile pictures
 Password reset functionality
-Role-based access control (admin, author, reader)
 
 Content Management
 
@@ -27,30 +26,21 @@ Administration
 
 Admin dashboard for content moderation
 User management interface
-Analytics for post views and engagement
-Content approval workflow
+
 
 Technical Architecture
 Backend
 
 Django web framework
-SQLite/PostgreSQL database
+SQLite database
 RESTful API endpoints
 Django ORM for database interactions
 
-Frontend
-
-Django templates with Bootstrap for responsive design
-JavaScript for interactive elements
-AJAX for asynchronous content loading
-Responsive design for mobile and desktop views
 
 Implementation Details
 User Authentication Flow
 
-User registration with email verification
 Secure login with session management
-Password reset via email
 Profile customization options
 
 Blog Post Lifecycle
